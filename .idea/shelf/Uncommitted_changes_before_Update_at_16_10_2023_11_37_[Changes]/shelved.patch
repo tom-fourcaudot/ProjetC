@@ -1,0 +1,27 @@
+Index: main.c
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}\n
+===================================================================
+diff --git a/main.c b/main.c
+--- a/main.c	
++++ b/main.c	
+@@ -1,6 +1,17 @@
+ #include <stdio.h>
++#include <stdlib.h>
++#include <time.h>
+ 
+ int main() {
+-    printf("Hello, World!\n");
++    float startTime = (float)clock()/CLOCKS_PER_SEC;
++    int i;
++    int x[10];
++    char* y = (char *)malloc(10*sizeof(char));
++    for (i = 0; i < 10; i++) {
++        x[i] = i;
++        y[i] = 'a' + i;
++    }
++    float endTime = (float)clock()/CLOCKS_PER_SEC;
++    printf("Time: %f\n", endTime - startTime);
+     return 0;
+ }
