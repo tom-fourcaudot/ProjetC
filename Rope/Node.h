@@ -7,7 +7,6 @@
 
 typedef struct Node Node;
 struct Node{
-    unsigned int index;
     unsigned int label;
 
     Node* leftNeighbour;

@@ -9,7 +9,7 @@
 
 typedef struct Rope Rope;
 struct Rope{
-    const unsigned int MAX_INNER_STRING_SIZE;
+    unsigned int MAX_INNER_STRING_SIZE;
     Node root;
 };
 
