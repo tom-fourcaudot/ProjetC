@@ -14,4 +14,9 @@ struct Rope{
 };
 
 Rope init_rope(char* string, int substring_size);
+void insert_node(Rope* rope, Node* node, int index);
+
+void suppress_node(Rope* rope, int index);
+void reequilibrate(Rope* rope);
+
 #endif //PROJETC_ROPE_H

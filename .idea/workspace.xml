@@ -20,9 +20,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a44d16be-3c1a-40be-91f2-52ce5a872e61" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Rope/Node.c" beforeDir="false" afterPath="$PROJECT_DIR$/Rope/Node.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rope/Node.h" beforeDir="false" afterPath="$PROJECT_DIR$/Rope/Node.h" afterDir="false" />
+    <list default="true" id="a44d16be-3c1a-40be-91f2-52ce5a872e61" name="Changes" comment="init rope">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rope/Rope.c" beforeDir="false" afterPath="$PROJECT_DIR$/Rope/Rope.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rope/Rope.h" beforeDir="false" afterPath="$PROJECT_DIR$/Rope/Rope.h" afterDir="false" />
     </list>
@@ -38,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Rope" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,6 +57,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="Rope-function" />
+                    <option name="lastUsedInstant" value="1697450688" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="Rope" />
                     <option name="lastUsedInstant" value="1697449403" />
@@ -98,10 +102,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Rope",
+    "git-widget-placeholder": "Rope-function",
     "last_opened_file_path": "/Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -135,8 +140,25 @@
       <updated>1697441303746</updated>
       <workItem from="1697441304791" duration="694000" />
       <workItem from="1697442006181" duration="3023000" />
-      <workItem from="1697449000733" duration="908000" />
+      <workItem from="1697449000733" duration="2207000" />
     </task>
+    <task id="LOCAL-00001" summary="init rope">
+      <option name="closed" value="true" />
+      <created>1697450172652</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697450172652</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init rope">
+      <option name="closed" value="true" />
+      <created>1697450180563</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697450180564</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +180,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init rope" />
+    <option name="LAST_COMMIT_MESSAGE" value="init rope" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
