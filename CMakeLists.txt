@@ -11,3 +11,5 @@ add_executable(ProjetC main.c
         Rope/String.c
         Rope/String.h
 )
+
+target_link_libraries(ProjetC PRIVATE m)
