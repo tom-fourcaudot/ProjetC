@@ -7,6 +7,7 @@
 
 typedef struct Node Node;
 struct Node{
+    unsigned int index;
     unsigned int label;
 
     Node* leftNeighbour;
@@ -14,5 +15,5 @@ struct Node{
     char* substring;
 };
 
-Node init_node(char* string, unsigned int* substring_size);
+Node init_node(char* string, int* substring_size);
 #endif //PROJETC_NODE_H
