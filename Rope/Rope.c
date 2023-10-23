@@ -24,7 +24,7 @@ void concatenate(Rope* rope, char* string, int index){
     Node *node = get_node_at_index(&rope->root, index, &substring_start_index, &previousNode);
 
     if (node != NULL) {
-        int newStringLength = strlen(node->substring) + strlen(string);
+        int newStringLength = strlen(node->substring) + strlen(string); //Cassé car node est pas le bon c'est qui a 6
         char* newString = malloc((newStringLength + 1) * sizeof(char));
 
         if (newString != NULL) {
@@ -40,15 +40,16 @@ void concatenate(Rope* rope, char* string, int index){
     }
 }
 
+//retourne pas le bon node
 Node* get_node_at_index(Node* node, int index, int* substring_start_index, Node* previousNode) {
     if (node == NULL) return NULL;
     if (index < 0) return NULL;
 
-    int leftSize = node->leftNeighbour ? strlen(node->leftNeighbour->substring) : 0;
+    int leftSize = node->leftNeighbour ? (int) node->leftNeighbour->label : 0;
 
     if (index < leftSize) {
         return get_node_at_index(node->leftNeighbour, index, substring_start_index, previousNode);
-    } else if (index < leftSize + strlen(node->substring)) {
+    } else if (index < leftSize + node->label) {
         *substring_start_index = index - leftSize; // Indice relatif au début de la sous-chaîne
 
         // Passer le nœud précédent
