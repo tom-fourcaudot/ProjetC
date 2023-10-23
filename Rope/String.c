@@ -12,3 +12,4 @@ String init_string(char* string[]){
   s->size = strlen((const char *) string);
   return *s;
 };
+
