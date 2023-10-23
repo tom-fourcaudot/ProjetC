@@ -15,5 +15,5 @@ struct Node{
     char* substring;
 };
 
-Node init_node(char* string, int* substring_size);
+Node* init_node(char* string, const unsigned int* substring_size);
 #endif //PROJETC_NODE_H

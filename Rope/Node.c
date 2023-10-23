@@ -27,6 +27,7 @@ Node * init_node(char* string, const unsigned int* substring_size) {
         char* right_string = malloc(right_string_size * sizeof(char));
         strncpy(left_string, string,left_string_size );
         strncpy(right_string, string + (left_string_size), right_string_size);
+        free(string);
         node->leftNeighbour = init_node(left_string, substring_size);
         node->rightNeighbour = init_node(right_string, substring_size);
         node->label = left_string_size;

@@ -10,10 +10,11 @@
 //The substring size is the maximum size of a substring
 //Return a rope
 Rope init_rope(char* string, int substring_size){
-    Rope rope;
-    rope.MAX_INNER_STRING_SIZE = substring_size;
-    rope.root = init_node(string, &(rope.MAX_INNER_STRING_SIZE));
-    return rope;
+    char* string2 = strdup(string);
+    Rope* rope = malloc(sizeof (Rope));
+    rope->MAX_INNER_STRING_SIZE = (unsigned int)substring_size;
+    rope->root = *init_node(string2, &(rope->MAX_INNER_STRING_SIZE));
+    return *rope;
 }
 
 //Insert a node in a rope at a given index
