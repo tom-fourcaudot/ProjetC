@@ -88,6 +88,12 @@
 		<Unit filename="/Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Rope.h">
 			<Option target="ProjetC"/>
 		</Unit>
+		<Unit filename="/Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.c">
+			<Option target="ProjetC"/>
+		</Unit>
+		<Unit filename="/Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.h">
+			<Option target="ProjetC"/>
+		</Unit>
 		<Unit filename="/Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/main.c">
 			<Option target="ProjetC"/>
 		</Unit>

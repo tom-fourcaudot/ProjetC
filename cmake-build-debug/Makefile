@@ -177,6 +177,30 @@ Rope/Rope.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetC.dir/build.make CMakeFiles/ProjetC.dir/Rope/Rope.c.s
 .PHONY : Rope/Rope.c.s
 
+Rope/String.o: Rope/String.c.o
+.PHONY : Rope/String.o
+
+# target to build an object file
+Rope/String.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetC.dir/build.make CMakeFiles/ProjetC.dir/Rope/String.c.o
+.PHONY : Rope/String.c.o
+
+Rope/String.i: Rope/String.c.i
+.PHONY : Rope/String.i
+
+# target to preprocess a source file
+Rope/String.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetC.dir/build.make CMakeFiles/ProjetC.dir/Rope/String.c.i
+.PHONY : Rope/String.c.i
+
+Rope/String.s: Rope/String.c.s
+.PHONY : Rope/String.s
+
+# target to generate assembly for a file
+Rope/String.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetC.dir/build.make CMakeFiles/ProjetC.dir/Rope/String.c.s
+.PHONY : Rope/String.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -216,6 +240,9 @@ help:
 	@echo "... Rope/Rope.o"
 	@echo "... Rope/Rope.i"
 	@echo "... Rope/Rope.s"
+	@echo "... Rope/String.o"
+	@echo "... Rope/String.i"
+	@echo "... Rope/String.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

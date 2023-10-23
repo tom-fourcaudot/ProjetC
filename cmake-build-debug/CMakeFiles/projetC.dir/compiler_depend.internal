@@ -3,9 +3,12 @@
 
 CMakeFiles/ProjetC.dir/Rope/Node.c.o
  /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Node.c
+ /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Node.h
 
 CMakeFiles/ProjetC.dir/Rope/Rope.c.o
  /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Rope.c
+ /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Rope.h
+ /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Node.h
 
 CMakeFiles/ProjetC.dir/main.c.o
  /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/main.c
