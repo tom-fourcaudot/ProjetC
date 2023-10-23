@@ -11,4 +11,5 @@ struct String {
 };
 
 String init_string(char*string[]);
+void free_string(char* first_char, int sizeOfString);
 #endif //PROJETC_STRING_H

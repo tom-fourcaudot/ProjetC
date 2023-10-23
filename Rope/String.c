@@ -12,3 +12,8 @@ String init_string(char* string[]){
   s->size = strlen((const char *) string);
   return *s;
 };
+
+void free_string(char* first_char, int sizeOfString){
+    free((void*)first_char + (sizeOfString * sizeof(char)));
+    free(first_char);
+}
