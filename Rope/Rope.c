@@ -16,13 +16,6 @@ Rope init_rope(char* string, int substring_size){
     return rope;
 }
 
-Rope init_under_rope(char* string, int substring_size){
-    Rope rope;
-    rope.MAX_INNER_STRING_SIZE = substring_size;
-    rope.root = init_node(string, &(rope.MAX_INNER_STRING_SIZE));
-    return rope;
-}
-
 //Insert a node in a rope at a given index
 void concatenate(Rope* rope, char* string, int index){
     int substring_start_index = 0;
@@ -40,7 +33,7 @@ void concatenate(Rope* rope, char* string, int index){
             // Réassigner la chaîne dans le nœud
             free(node->substring);
             node->substring = NULL; //Au lieu de remplacer faut créer un nouveau rope
-            Rope newRope = init_under_rope(newString, 3); //atentions
+            Rope newRope = init_rope(newString, 3); //atentions
             previousNode.rightNeighbour = &newRope.root; //atentions
         }
     }
