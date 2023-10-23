@@ -37,7 +37,6 @@ void concatenate(Rope* rope, char* string, int index){
             previousNode.rightNeighbour = &newRope.root; //atentions
         }
     }
-    //Return rope
 }
 
 Node* get_node_at_index(Node* node, int index, int* substring_start_index, Node* previousNode) {
