@@ -7,4 +7,7 @@ add_executable(ProjetC main.c
         Rope/Rope.h
         Rope/Node.h
         Rope/Node.c
-        Rope/Rope.c)
+        Rope/Rope.c
+        Rope/String.c
+        Rope/String.h
+)
