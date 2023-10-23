@@ -10,6 +10,11 @@
 Rope init_rope(char* string, int substring_size){
     Rope rope;
     rope.MAX_INNER_STRING_SIZE = substring_size;
-    rope.root = init_node(string, &substring_size);
+    //rope.root = init_node(string, &substring_size);
     return rope;
+}
+
+
+Rope init_rope_with_node(Rope* rope){
+
 }
