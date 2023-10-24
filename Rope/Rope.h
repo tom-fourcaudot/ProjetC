@@ -18,7 +18,7 @@ void insert_node(Rope* rope, Node* node, int index);
 void concatenate(Rope* rope, char* string, int index);
 
 //Concatenate function
-Node* get_node_at_index(Node* node, int index, int* substring_start_index, Node* previousNode);
+Node* get_node_at_index(Node* node, int index, int* substring_start_index, Node* previousNode, int option);
 
 void suppress_node(Rope* rope, int index);
 void reequilibrate(Rope* rope);

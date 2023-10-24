@@ -9,23 +9,23 @@
 //Intialize a rope with a string and a substring size
 //The substring size is the maximum size of a substring
 //Return a rope
-Rope init_rope(char* string, int substring_size){
-    char* string2 = strdup(string);
-    Rope* rope = malloc(sizeof (Rope));
-    rope->MAX_INNER_STRING_SIZE = (unsigned int)substring_size;
+Rope init_rope(char *string, int substring_size) {
+    char *string2 = strdup(string);
+    Rope *rope = malloc(sizeof(Rope));
+    rope->MAX_INNER_STRING_SIZE = (unsigned int) substring_size;
     rope->root = *init_node(string2, &(rope->MAX_INNER_STRING_SIZE));
     return *rope;
 }
 
 //Insert a node in a rope at a given index
-void concatenate(Rope* rope, char* string, int index){
+void concatenate(Rope *rope, char *string, int index) {
     int substring_start_index = 0;
     Node previousNode;
-    Node *node = get_node_at_index(&rope->root, index, &substring_start_index, &previousNode);
+    Node *node = get_node_at_index(&rope->root, index, &substring_start_index, &previousNode, 0);
 
     if (node != NULL) {
         int newStringLength = strlen(node->substring) + strlen(string); //Cassé car node est pas le bon c'est qui a 6
-        char* newString = malloc((newStringLength + 1) * sizeof(char));
+        char *newString = malloc((newStringLength + 1) * sizeof(char));
 
         if (newString != NULL) {
             strcpy(newString, node->substring);
@@ -40,26 +40,53 @@ void concatenate(Rope* rope, char* string, int index){
     }
 }
 
+//option = 0 : first
+//option = 1 : left
+//option = 2 : right
 //retourne pas le bon node
-Node* get_node_at_index(Node* node, int index, int* substring_start_index, Node* previousNode) {
+Node *get_node_at_index(Node *node, int index, int *substring_start_index, Node *previousNode, int option) {
     if (node == NULL) return NULL;
-    if (index < 0) return NULL;
 
-    int leftSize = node->leftNeighbour ? (int) node->leftNeighbour->label : 0;
+    //fini
+    if (node->substring != NULL) {
+        //
+        return node;
+    }
 
-    if (index < leftSize) {
-        return get_node_at_index(node->leftNeighbour, index, substring_start_index, previousNode);
-    } else if (index < leftSize + node->label) {
-        *substring_start_index = index - leftSize; // Indice relatif au début de la sous-chaîne
+    if (option == 0) {
 
-        // Passer le nœud précédent
-        if (previousNode != NULL) {
-            *previousNode = *node;
+        //gauche
+        if (index <= node->label) {
+            return get_node_at_index(node->leftNeighbour, index, substring_start_index, previousNode,1);
         }
 
-        return node;
-    } else {
-        return get_node_at_index(node->rightNeighbour, index - leftSize - strlen(node->substring), substring_start_index, node);
+        //droite
+        if (index > node->label) {
+            return get_node_at_index(node->rightNeighbour, index-node->label, substring_start_index, previousNode,2);
+        }
+    }else if(option == 1){
+
+        //gauche
+        if (index <= node->label) {
+            return get_node_at_index(node->leftNeighbour, index, substring_start_index, previousNode,1);
+        }
+
+        //droite
+        if (index > node->label) {
+            return get_node_at_index(node->rightNeighbour, index, substring_start_index, previousNode,1);
+        }
+
+    }
+    else{
+        //gauche
+        if (index <= node->label) {
+            return get_node_at_index(node->leftNeighbour, index, substring_start_index, previousNode,2);
+        }
+
+        //droite
+        if (index > node->label) {
+            return get_node_at_index(node->rightNeighbour, index, substring_start_index, previousNode,2);
+        }
     }
 }
 
