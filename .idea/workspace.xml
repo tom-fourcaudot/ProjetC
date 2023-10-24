@@ -25,7 +25,6 @@
       <change beforePath="$PROJECT_DIR$/Rope/Rope.c" beforeDir="false" afterPath="$PROJECT_DIR$/Rope/Rope.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rope/Rope.h" beforeDir="false" afterPath="$PROJECT_DIR$/Rope/Rope.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,15 +196,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="function for rope" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Rope/Rope.c</url>
-          <line>68</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="previousNode" language="ObjectiveC" />

@@ -21,7 +21,7 @@ Rope init_rope(char *string, int substring_size) {
 void concatenate(Rope *rope, char *string, int index) {
     int substring_start_index = 0;
     Node previousNode;
-    Node *node = get_node_at_index(&rope->root, index, &substring_start_index, &previousNode, 0);
+    Node *node = get_node_at_index(&rope->root, index);
 
     if (node != NULL) {
         int newStringLength = strlen(node->substring) + strlen(string); //Cassé car node est pas le bon c'est qui a 6
@@ -40,53 +40,18 @@ void concatenate(Rope *rope, char *string, int index) {
     }
 }
 
-//option = 0 : first
-//option = 1 : left
-//option = 2 : right
-//retourne pas le bon node
-Node *get_node_at_index(Node *node, int index, int *substring_start_index, Node *previousNode, int option) {
-    if (node == NULL) return NULL;
 
-    //fini
+// a gauche je retourne left et a droite je retourne right et j'enleve a l'index le label
+
+Node *get_node_at_index(Node *node, int index) {
+    if (node == NULL){return NULL;}
     if (node->substring != NULL) {
-        //
         return node;
     }
-
-    if (option == 0) {
-
-        //gauche
-        if (index <= node->label) {
-            return get_node_at_index(node->leftNeighbour, index, substring_start_index, previousNode,1);
-        }
-
-        //droite
-        if (index > node->label) {
-            return get_node_at_index(node->rightNeighbour, index-node->label, substring_start_index, previousNode,2);
-        }
-    }else if(option == 1){
-
-        //gauche
-        if (index <= node->label) {
-            return get_node_at_index(node->leftNeighbour, index, substring_start_index, previousNode,1);
-        }
-
-        //droite
-        if (index > node->label) {
-            return get_node_at_index(node->rightNeighbour, index, substring_start_index, previousNode,1);
-        }
-
-    }
-    else{
-        //gauche
-        if (index <= node->label) {
-            return get_node_at_index(node->leftNeighbour, index, substring_start_index, previousNode,2);
-        }
-
-        //droite
-        if (index > node->label) {
-            return get_node_at_index(node->rightNeighbour, index, substring_start_index, previousNode,2);
-        }
+    if (index <= node->label) {
+        return get_node_at_index(node->leftNeighbour, index );
+    } else {
+        return get_node_at_index(node->rightNeighbour, index-node->label);
     }
 }
 
