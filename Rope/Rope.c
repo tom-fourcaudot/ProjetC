@@ -18,40 +18,41 @@ Rope init_rope(char *string, int substring_size) {
 }
 
 //Insert a node in a rope at a given index
-void concatenate(Rope *rope, char *string, int index) {
-    int substring_start_index = 0;
-    Node previousNode;
+void concatenate(Rope *rope, char *string, unsigned int* index) {
     Node *node = get_node_at_index(&rope->root, index);
 
     if (node != NULL) {
-        int newStringLength = strlen(node->substring) + strlen(string); //Cassé car node est pas le bon c'est qui a 6
+        int newStringLength = strlen(node->substring) + strlen(string);
         char *newString = malloc((newStringLength + 1) * sizeof(char));
 
         if (newString != NULL) {
-            strcpy(newString, node->substring);
+            strncpy(newString, node->substring, *index);
+            newString[*index] = '\0';
             strcat(newString, string);
+            strcat(newString, node->substring + *index);
 
-            // Réassigner la chaîne dans le nœud
+
             free(node->substring);
-            node->substring = NULL; //Au lieu de remplacer faut créer un nouveau rope
-            Rope newRope = init_rope(newString, 3); //atentions
-            previousNode.rightNeighbour = &newRope.root; //atentions
+            node = init_node(newString, &rope->MAX_INNER_STRING_SIZE);
+            int a = 0;
         }
     }
 }
 
 
 // a gauche je retourne left et a droite je retourne right et j'enleve a l'index le label
-
-Node *get_node_at_index(Node *node, int index) {
+//Previous cassé et savoir si c'est droite ou gauche pour dire root est droite ou gauche
+Node *get_node_at_index(Node *node, unsigned int *index) {
     if (node == NULL){return NULL;}
     if (node->substring != NULL) {
         return node;
     }
-    if (index <= node->label) {
-        return get_node_at_index(node->leftNeighbour, index );
+
+    if (*index <= node->label) {
+        return get_node_at_index(node->leftNeighbour, index);
     } else {
-        return get_node_at_index(node->rightNeighbour, index-node->label);
+        *index = *index - node->label;
+        return get_node_at_index(node->rightNeighbour, index);
     }
 }
 

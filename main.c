@@ -6,7 +6,8 @@
 int main() {
     unsigned int* sub_size = malloc(sizeof (unsigned int));
     Rope rope = init_rope("abcdefghijklmnopqrstuvwxyz", 3);
-    concatenate(&rope, "123456789", 18);
+    int index = 5;
+    concatenate(&rope, "123456789", &index);
     return 0;
 }
 
