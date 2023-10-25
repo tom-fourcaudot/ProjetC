@@ -9,16 +9,16 @@
 //Intialize a rope with a string and a substring size
 //The substring size is the maximum size of a substring
 //Return a rope
-Rope init_rope(char *string, int substring_size) {
+Rope* init_rope(char *string, int substring_size) {
     char *string2 = strdup(string);
     Rope *rope = malloc(sizeof(Rope));
     rope->MAX_INNER_STRING_SIZE = (unsigned int) substring_size;
     rope->root = *init_node(string2, &(rope->MAX_INNER_STRING_SIZE));
-    return *rope;
+    return rope;
 }
 
 //Insert a node in a rope at a given index
-void concatenate(Rope *rope, char *string, unsigned int* index) {
+void rope_insert_at(Rope *rope, char *string, unsigned int* index) {
     Node *node = get_node_at_index(&rope->root, index);
 
     if (node != NULL) {
@@ -32,7 +32,7 @@ void concatenate(Rope *rope, char *string, unsigned int* index) {
             strcat(newString, node->substring + *index);
 
 
-            free(node->substring);
+//            free(node->substring);
             node = init_node(newString, &rope->MAX_INNER_STRING_SIZE);
             int a = 0;
         }

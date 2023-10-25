@@ -13,9 +13,9 @@ struct Rope{
     Node root;
 };
 
-Rope init_rope(char* string, int substring_size);
+Rope* init_rope(char* string, int substring_size);
 void insert_node(Rope* rope, Node* node, int index);
-void concatenate(Rope* rope, char* string, unsigned int *index);
+void rope_insert_at(Rope* rope, char* string, unsigned int *index);
 
 //Concatenate function
 Node* get_node_at_index(Node* node, unsigned int* index);
