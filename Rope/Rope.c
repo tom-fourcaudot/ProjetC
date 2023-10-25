@@ -5,17 +5,35 @@
 #include "Node.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 //Intialize a rope with a string and a substring size
 //The substring size is the maximum size of a substring
 //Return a rope
 Rope init_rope(char* string, int substring_size){
-    char* string2 = strdup(string);
+    char* tmp = strdup(string);
+    String *string_struct = init_string(tmp);
     Rope* rope = malloc(sizeof (Rope));
     rope->MAX_INNER_STRING_SIZE = (unsigned int)substring_size;
-    rope->root = *init_node(string2, &(rope->MAX_INNER_STRING_SIZE));
+    rope->root = init_node(string_struct, &(rope->MAX_INNER_STRING_SIZE));
+    free(tmp);
     return *rope;
 }
+
+void print_node(Node *node){
+    if (node->substring != NULL) {
+        printf("%s", node->substring->first_char);
+    } else {
+        print_node(node->leftNeighbour);
+        print_node(node->rightNeighbour);
+    }
+}
+
+void print_rope(Rope rope) {
+    print_node(rope.root);
+    printf("\n");
+}
+
 
 //Insert a node in a rope at a given index
 void concatenate(Rope* rope, char* string, int index){

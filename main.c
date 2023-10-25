@@ -4,8 +4,8 @@
 #include "Rope/Rope.h"
 
 int main() {
-    unsigned int* sub_size = malloc(sizeof (unsigned int));
-    Rope rope = init_rope("abcdefghijklmnopqrstuvwxyz", 3);
+    Rope rope = init_rope("123456789abcdefghijkl", 3);
+    print_rope(rope);
     return 0;
 }
 

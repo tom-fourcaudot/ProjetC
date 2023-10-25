@@ -5,6 +5,8 @@
 #ifndef PROJETC_NODE_H
 #define PROJETC_NODE_H
 
+#include "String.h"
+
 typedef struct Node Node;
 struct Node{
     unsigned int index;
@@ -12,8 +14,9 @@ struct Node{
 
     Node* leftNeighbour;
     Node* rightNeighbour;
-    char* substring;
+    String* substring;
 };
 
-Node* init_node(char* string, const unsigned int* substring_size);
+Node* init_node(String* string, const unsigned int* substring_size);
+String* cut_string(String* string);
 #endif //PROJETC_NODE_H
