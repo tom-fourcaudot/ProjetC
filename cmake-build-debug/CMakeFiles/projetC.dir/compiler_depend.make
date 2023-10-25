@@ -165,15 +165,7 @@ CMakeFiles/ProjetC.dir/Rope/Rope.c.o: /Users/matisbouquin/Documents/Travail/IUT/
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_common.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/_stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_va_list.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_seek_set.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/_ctermid.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_off_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_stdio.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h
 
 CMakeFiles/ProjetC.dir/Rope/String.c.o: /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.c \
   /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.h \
