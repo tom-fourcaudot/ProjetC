@@ -9,7 +9,6 @@
 
 typedef struct Node Node;
 struct Node{
-    unsigned int index;
     unsigned int label;
 
     Node* leftNeighbour;
@@ -18,5 +17,4 @@ struct Node{
 };
 
 Node* init_node(String* string, const unsigned int* substring_size);
-String* cut_string(String* string);
 #endif //PROJETC_NODE_H

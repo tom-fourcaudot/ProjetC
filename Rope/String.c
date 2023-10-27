@@ -17,3 +17,12 @@ void free_string(char* first_char, int sizeOfString){
     free((void*)first_char + (sizeOfString * sizeof(char)));
     free(first_char);
 }
+
+String * cut_string(String* string) {
+    unsigned int rest = string->size & 1;
+    string->size >>= 1;
+    String* right_part = malloc(sizeof(String));
+    right_part->first_char = string->first_char + string->size;
+    right_part->size = string->size + rest;
+    return right_part;
+}

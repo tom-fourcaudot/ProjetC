@@ -25,13 +25,4 @@ Node * init_node(String* string, const unsigned int* substring_size) {
         node->substring = NULL;
     }
     return node;
-};
-
-String * cut_string(String* string) {
-    unsigned int rest = string->size & 1;
-    string->size >>= 1;
-    String* right_part = malloc(sizeof(String));
-    right_part->first_char = string->first_char + string->size;
-    right_part->size = string->size + rest;
-    return right_part;
 }
