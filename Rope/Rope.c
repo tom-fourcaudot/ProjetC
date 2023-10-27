@@ -7,7 +7,7 @@
 #include <string.h>
 #include <stdio.h>
 
-//Intialize a rope with a string and a substring size
+//Initialize a rope with a string and a substring size
 //The substring size is the maximum size of a substring
 //Return a rope
 Rope init_rope(char* string, int substring_size){
