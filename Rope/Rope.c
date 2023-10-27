@@ -19,7 +19,8 @@ Rope* init_rope(char *string, int substring_size) {
 
 //Insert a node in a rope at a given index
 void rope_insert_at(Rope *rope, char *string, unsigned int* index) {
-    Node *node = get_node_at_index(&rope->root, index);
+    Node *parentNode = NULL;
+    Node *node = get_node_at_index(&rope->root, index, &parentNode);
 
     if (node != NULL) {
         int newStringLength = strlen(node->substring) + strlen(string);
@@ -33,28 +34,43 @@ void rope_insert_at(Rope *rope, char *string, unsigned int* index) {
 
 
 //            free(node->substring);
-            node = init_node(newString, &rope->MAX_INNER_STRING_SIZE);
-            int a = 0;
+            Node* nodeAdd = init_node(newString, &rope->MAX_INNER_STRING_SIZE);
+            parentNode->leftNeighbour = nodeAdd; // TO DO left or right
         }
     }
 }
 
 
-// a gauche je retourne left et a droite je retourne right et j'enleve a l'index le label
-//Previous cassé et savoir si c'est droite ou gauche pour dire root est droite ou gauche
-Node *get_node_at_index(Node *node, unsigned int *index) {
+Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode) {
     if (node == NULL){return NULL;}
     if (node->substring != NULL) {
+        *parentNode = *parentNode;
         return node;
     }
 
     if (*index <= node->label) {
-        return get_node_at_index(node->leftNeighbour, index);
+        *parentNode = node;
+        return get_node_at_index(node->leftNeighbour, index, parentNode);
     } else {
         *index = *index - node->label;
-        return get_node_at_index(node->rightNeighbour, index);
+        *parentNode = node;
+        return get_node_at_index(node->rightNeighbour, index, parentNode);
     }
 }
+
+
+//Delete a char at a given index
+void delete_char_at(Rope* rope, unsigned int* index, unsigned int* length){
+}
+
+int dfs(Node* node) {
+    if (node == NULL) {
+        return 0;
+    }
+
+    return dfs(node->leftNeighbour) + dfs(node->rightNeighbour) + 1;
+}
+
 
 
 

@@ -17,8 +17,11 @@ void bench_rope(Rope *rope, char *base, size_t nb_insertions)
 //        size_t len = rope_len(rope);  // TO DO
         size_t len = strlen(base);
         size_t pos = rand() % len;
-
+//        int start = dfs(&rope->root);
+//        printf("start: %d\n", start);
         rope_insert_at(rope, base, (unsigned int *) &pos);
+//        int end = dfs(&rope->root);
+//        printf("end: %d\n", end);
     }
 }
 
@@ -112,5 +115,19 @@ int main()
 
     free(base);
 
+    return 0;
+}
+
+
+int main_tmp(){
+    unsigned int* sub_size = malloc(sizeof (unsigned int));
+    int size = 3;
+    Rope* rope = init_rope("abcdefghijklmnopqrstuvwxyz", size);
+    int nbr = dfs(&rope->root);
+    printf("nbr: %d\n", nbr);
+    int pos = 5;
+    rope_insert_at(rope, "123", (unsigned int *) &pos);
+    int nbr2 = dfs(&rope->root);
+    printf("nbr2: %d\n", nbr2);
     return 0;
 }
