@@ -125,8 +125,8 @@ int main_tmp(){
     Rope* rope = init_rope("abcdefghijklmnopqrstuvwxyz", size);
     int nbr = dfs(&rope->root);
     printf("nbr: %d\n", nbr);
-    int pos = 5;
-    rope_insert_at(rope, "123", (unsigned int *) &pos);
+    int pos = 3;
+    rope_insert_at(rope, "123456789", (unsigned int *) &pos);
     int nbr2 = dfs(&rope->root);
     printf("nbr2: %d\n", nbr2);
     return 0;

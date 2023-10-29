@@ -21,15 +21,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a44d16be-3c1a-40be-91f2-52ce5a872e61" name="Changes" comment="function for rope">
-      <change beforePath="$PROJECT_DIR$/.idea/ProjetC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjetC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_10_2023_11_37_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_10_2023_11_37__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rope/Rope.c" beforeDir="false" afterPath="$PROJECT_DIR$/Rope/Rope.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rope/Rope.h" beforeDir="false" afterPath="$PROJECT_DIR$/Rope/Rope.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/projetC.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/projetC.dir/compiler_depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/projetC.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/projetC.dir/compiler_depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
@@ -214,6 +208,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="function for rope" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.c</url>
+          <line>131</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="previousNode" language="ObjectiveC" />

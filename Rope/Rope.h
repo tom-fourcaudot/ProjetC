@@ -20,7 +20,7 @@ void rope_insert_at(Rope* rope, char* string, unsigned int *index);
 void delete_char_at(Rope* rope, unsigned int* index, unsigned int* length);
 
 //Concatenate function
-Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode);
+Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft);
         int dfs(Node* node);
 
 void suppress_node(Rope* rope, int index);
