@@ -10,7 +10,7 @@
 typedef struct Rope Rope;
 struct Rope{
     unsigned int MAX_INNER_STRING_SIZE;
-    Node root;
+    Node *root;
 };
 
 Rope* init_rope(char* string, int substring_size);
@@ -25,5 +25,6 @@ Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool
 
 void suppress_node(Rope* rope, int index);
 void reequilibrate(Rope* rope);
+void print_rope(Rope rope);
 
 #endif //PROJETC_ROPE_H
