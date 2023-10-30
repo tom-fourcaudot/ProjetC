@@ -13,12 +13,15 @@ struct Rope{
     Node *root;
 };
 
-Rope init_rope(char* string, int substring_size);
+Rope* init_rope(char* string, int substring_size);
 void insert_node(Rope* rope, Node* node, int index);
-void concatenate(Rope* rope, char* string, int index);
+void rope_insert_at(Rope* rope, char* string, unsigned int *index);
+
+void delete_char_at(Rope* rope, unsigned int* index, unsigned int* length);
 
 //Concatenate function
-Node* get_node_at_index(Node* node, int index, int* substring_start_index, Node* previousNode);
+Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft);
+        int dfs(Node* node);
 
 void suppress_node(Rope* rope, int index);
 void reequilibrate(Rope* rope);

@@ -36,24 +36,29 @@ void print_rope(Rope rope) {
 
 
 //Insert a node in a rope at a given index
-void concatenate(Rope* rope, char* string, int index){
-    int substring_start_index = 0;
-    Node previousNode;
-    Node *node = get_node_at_index(&rope->root, index, &substring_start_index, &previousNode);
+void rope_insert_at(Rope *rope, char *string, unsigned int* index) {
+    Node *parentNode = NULL;
+    bool isLeft = false;
+    Node *node = get_node_at_index(&rope->root, index, &parentNode, &isLeft);
 
     if (node != NULL) {
         int newStringLength = strlen(node->substring) + strlen(string);
-        char* newString = malloc((newStringLength + 1) * sizeof(char));
+        char *newString = malloc((newStringLength + 1) * sizeof(char));
 
         if (newString != NULL) {
-            strcpy(newString, node->substring);
+            strncpy(newString, node->substring, *index);
+            newString[*index] = '\0';
             strcat(newString, string);
+            strcat(newString, node->substring + *index);
 
-            // Réassigner la chaîne dans le nœud
-            free(node->substring);
-            node->substring = NULL; //Au lieu de remplacer faut créer un nouveau rope
-            Rope newRope = init_rope(newString, 3); //atentions
-            previousNode.rightNeighbour = &newRope.root; //atentions
+
+//            free(node->substring);
+            Node* nodeAdd = init_node(newString, &rope->MAX_INNER_STRING_SIZE);
+            if (isLeft) {
+                parentNode->leftNeighbour = nodeAdd;
+            } else {
+                parentNode->rightNeighbour = nodeAdd;
+            }
         }
     }
 }
@@ -69,16 +74,38 @@ Node* get_node_at_index(Node* node, int index, int* substring_start_index, Node*
     } else if (index < leftSize + strlen(node->substring)) {
         *substring_start_index = index - leftSize; // Indice relatif au début de la sous-chaîne
 
-        // Passer le nœud précédent
-        if (previousNode != NULL) {
-            *previousNode = *node;
-        }
-
+Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft) {
+    if (node == NULL){return NULL;}
+    if (node->substring != NULL) {
+        *parentNode = *parentNode;
         return node;
+    }
+
+    if (*index <= node->label) {
+        *parentNode = node;
+        *isLeft = true;
+        return get_node_at_index(node->leftNeighbour, index, parentNode, isLeft);
     } else {
-        return get_node_at_index(node->rightNeighbour, index - leftSize - strlen(node->substring), substring_start_index, node);
+        *index = *index - node->label;
+        *parentNode = node;
+        *isLeft = false;
+        return get_node_at_index(node->rightNeighbour, index, parentNode, isLeft);
     }
 }
+
+
+//Delete a char at a given index
+void delete_char_at(Rope* rope, unsigned int* index, unsigned int* length){
+}
+
+int dfs(Node* node) {
+    if (node == NULL) {
+        return 0;
+    }
+
+    return dfs(node->leftNeighbour) + dfs(node->rightNeighbour) + 1;
+}
+
 
 
 

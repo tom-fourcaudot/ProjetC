@@ -1,10 +1,12 @@
 //
 // Created by toum on 10/16/23.
 //
+#include <math.h>
 #include "Node.h"
 #include "String.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 
 Node * init_node(String* string, const unsigned int* substring_size) {
