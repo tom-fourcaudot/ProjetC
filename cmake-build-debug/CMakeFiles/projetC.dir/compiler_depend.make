@@ -11,6 +11,7 @@ CMakeFiles/ProjetC.dir/Rope/Node.c.o: /Users/matisbouquin/Documents/Travail/IUT/
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/AvailabilityInternal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/AvailabilityInternalLegacy.h \
   /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Node.h \
+  /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types.h \
@@ -91,6 +92,7 @@ CMakeFiles/ProjetC.dir/Rope/Node.c.o: /Users/matisbouquin/Documents/Travail/IUT/
 CMakeFiles/ProjetC.dir/Rope/Rope.c.o: /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Rope.c \
   /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Rope.h \
   /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Node.h \
+  /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/AvailabilityVersions.h \
@@ -165,7 +167,15 @@ CMakeFiles/ProjetC.dir/Rope/Rope.c.o: /Users/matisbouquin/Documents/Travail/IUT/
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_common.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_va_list.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_seek_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/_ctermid.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_off_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_stdio.h
 
 CMakeFiles/ProjetC.dir/Rope/String.c.o: /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.c \
   /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.h \
@@ -335,7 +345,8 @@ CMakeFiles/ProjetC.dir/main.c.o: /Users/matisbouquin/Documents/Travail/IUT/S5/Pr
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/assert.h \
   /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Rope.h \
-  /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Node.h
+  /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/Node.h \
+  /Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.h
 
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/assert.h:
@@ -343,8 +354,6 @@ CMakeFiles/ProjetC.dir/main.c.o: /Users/matisbouquin/Documents/Travail/IUT/S5/Pr
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_time_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/time.h:
-
-/Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_off_t.h:
 
@@ -529,3 +538,5 @@ CMakeFiles/ProjetC.dir/main.c.o: /Users/matisbouquin/Documents/Travail/IUT/S5/Pr
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/alloca.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/cdefs.h:
+
+/Users/matisbouquin/Documents/Travail/IUT/S5/ProjetC/ProjetC/Rope/String.h:

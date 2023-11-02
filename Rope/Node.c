@@ -16,7 +16,7 @@ Node * init_node(String* string, const unsigned int* substring_size) {
         node->rightNeighbour = NULL;
         node->leftNeighbour = NULL;
         char* leafString = malloc((string->size + 1) * sizeof (char));
-        memcpy(leafString, string->first_char, string->size);
+        memcpy(leafString, string->first_char, string->size); // Sa pete
         *(leafString + string->size) = '\0';
         node->substring = init_string(leafString);
         free(string);

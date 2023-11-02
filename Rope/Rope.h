@@ -15,9 +15,11 @@ struct Rope{
 
 Rope* init_rope(char* string, int substring_size);
 void insert_node(Rope* rope, Node* node, int index);
-void rope_insert_at(Rope* rope, char* string, unsigned int *index);
+void rope_insert_at(Rope* rope, String* string, unsigned int *index);
 
 void delete_char_at(Rope* rope, unsigned int* index, unsigned int* length);
+void recursive_node_free(Node *node);
+void rope_delete(Rope *rope);
 
 //Concatenate function
 Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft);

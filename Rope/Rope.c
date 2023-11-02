@@ -10,14 +10,14 @@
 //Initialize a rope with a string and a substring size
 //The substring size is the maximum size of a substring
 //Return a rope
-Rope init_rope(char* string, int substring_size){
+Rope* init_rope(char* string, int substring_size){
     char* tmp = strdup(string);
     String *string_struct = init_string(tmp);
     Rope* rope = malloc(sizeof (Rope));
     rope->MAX_INNER_STRING_SIZE = (unsigned int)substring_size;
     rope->root = init_node(string_struct, &(rope->MAX_INNER_STRING_SIZE));
     free(tmp);
-    return *rope;
+    return rope;
 }
 
 void print_node(Node *node){
@@ -36,43 +36,33 @@ void print_rope(Rope rope) {
 
 
 //Insert a node in a rope at a given index
-void rope_insert_at(Rope *rope, char *string, unsigned int* index) {
+void rope_insert_at(Rope *rope, String *string, unsigned int* index) {
     Node *parentNode = NULL;
     bool isLeft = false;
-    Node *node = get_node_at_index(&rope->root, index, &parentNode, &isLeft);
+    Node *node = get_node_at_index(rope->root, index, &parentNode, &isLeft);
 
     if (node != NULL) {
-        int newStringLength = strlen(node->substring) + strlen(string);
+        int newStringLength = node->substring->size + string->size;
         char *newString = malloc((newStringLength + 1) * sizeof(char));
 
         if (newString != NULL) {
-            strncpy(newString, node->substring, *index);
+            strncpy(newString, node->substring->first_char, *index);
             newString[*index] = '\0';
-            strcat(newString, string);
-            strcat(newString, node->substring + *index);
-
-
-//            free(node->substring);
-            Node* nodeAdd = init_node(newString, &rope->MAX_INNER_STRING_SIZE);
+            strcat(newString, string->first_char);
+            strcat(newString, node->substring->first_char + *index);
+//            free_string(node->substring->first_char, node->substring->size);
+            free(node->substring);
+            node->substring = NULL;
+            Node* nodeAdd = init_node(init_string(newString), &rope->MAX_INNER_STRING_SIZE);
             if (isLeft) {
                 parentNode->leftNeighbour = nodeAdd;
             } else {
                 parentNode->rightNeighbour = nodeAdd;
             }
         }
+        free(newString);
     }
 }
-
-Node* get_node_at_index(Node* node, int index, int* substring_start_index, Node* previousNode) {
-    if (node == NULL) return NULL;
-    if (index < 0) return NULL;
-
-    int leftSize = node->leftNeighbour ? strlen(node->leftNeighbour->substring) : 0;
-
-    if (index < leftSize) {
-        return get_node_at_index(node->leftNeighbour, index, substring_start_index, previousNode);
-    } else if (index < leftSize + strlen(node->substring)) {
-        *substring_start_index = index - leftSize; // Indice relatif au début de la sous-chaîne
 
 Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft) {
     if (node == NULL){return NULL;}
@@ -105,6 +95,33 @@ int dfs(Node* node) {
 
     return dfs(node->leftNeighbour) + dfs(node->rightNeighbour) + 1;
 }
+
+void rope_delete(Rope *rope) {
+    if (rope == NULL) {
+        return; // Rien à faire si rope est NULL
+    }
+    // Appeler une fonction récursive pour libérer les nœuds
+    recursive_node_free(rope->root);
+    free(rope); // Libérer la structure Rope elle-même
+}
+
+void recursive_node_free(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    recursive_node_free(node->leftNeighbour); // Libérer les nœuds de gauche
+    recursive_node_free(node->rightNeighbour); // Libérer les nœuds de droite
+
+    if (node->substring != NULL) {
+//        free_string(node->substring->first_char, node->substring->size); // Libérer la chaîne de caractères
+        free(node->substring); // Libérer la structure String
+    }
+
+    free(node); // Libérer le nœud actuel
+}
+
+
 
 
 

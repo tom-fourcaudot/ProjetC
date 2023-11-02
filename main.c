@@ -17,10 +17,10 @@ void bench_rope(Rope *rope, char *base, size_t nb_insertions)
 //        size_t len = rope_len(rope);  // TO DO
         size_t len = strlen(base);
         size_t pos = rand() % len;
-//        int start = dfs(&rope->root);
+//        int start = dfs(rope->root);
 //        printf("start: %d\n", start);
-        rope_insert_at(rope, base, (unsigned int *) &pos);
-//        int end = dfs(&rope->root);
+        rope_insert_at(rope, init_string(base), (unsigned int *) &pos);
+//        int end = dfs(rope->root);
 //        printf("end: %d\n", end);
     }
 }
@@ -83,7 +83,7 @@ int main()
         clock_t start_insert = clock();
         bench_rope(rope, base, nb_insertions);
         clock_t start_delete = clock();
-//        rope_delete(rope); TO DO
+        rope_delete(rope);
         clock_t stop_delete = clock();
 
         float create_time = (float)(start_insert - start_create) / CLOCKS_PER_SEC;
@@ -123,12 +123,16 @@ int main_tmp(){
     unsigned int* sub_size = malloc(sizeof (unsigned int));
     int size = 3;
     Rope* rope = init_rope("abcdefghijklmnopqrstuvwxyz", size);
-    int nbr = dfs(&rope->root);
+    int nbr = dfs(rope->root);
     printf("nbr: %d\n", nbr);
-    int pos = 3;
-    rope_insert_at(rope, "123456789", (unsigned int *) &pos);
-    int nbr2 = dfs(&rope->root);
+    int pos = 5;
+    String* stringToInsert = init_string("123456789");
+    rope_insert_at(rope, stringToInsert, (unsigned int *) &pos);
+    int nbr2 = dfs(rope->root);
     printf("nbr2: %d\n", nbr2);
+    rope_delete(rope);
+    int nbr3 = dfs(rope->root);
+    printf("nbr3: %d\n", nbr3);
     return 0;
 }
 
