@@ -39,7 +39,8 @@ void print_rope(Rope rope) {
 void rope_insert_at(Rope *rope, String *string, unsigned int* index) {
     Node *parentNode = NULL;
     bool isLeft = false;
-    Node *node = get_node_at_index(rope->root, index, &parentNode, &isLeft);
+    int size = string->size;
+    Node *node = get_node_at_index(rope->root, index, &parentNode, &isLeft, &size);
 
     if (node != NULL) {
         int newStringLength = node->substring->size + string->size;
@@ -64,22 +65,22 @@ void rope_insert_at(Rope *rope, String *string, unsigned int* index) {
     }
 }
 
-Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft) {
+Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft, int* size) {
     if (node == NULL){return NULL;}
     if (node->substring != NULL) {
         *parentNode = *parentNode;
         return node;
     }
-
     if (*index <= node->label) {
         *parentNode = node;
         *isLeft = true;
-        return get_node_at_index(node->leftNeighbour, index, parentNode, isLeft);
+        node->label = node->label + *size;
+        return get_node_at_index(node->leftNeighbour, index, parentNode, isLeft, size);
     } else {
         *index = *index - node->label;
         *parentNode = node;
         *isLeft = false;
-        return get_node_at_index(node->rightNeighbour, index, parentNode, isLeft);
+        return get_node_at_index(node->rightNeighbour, index, parentNode, isLeft, size);
     }
 }
 

@@ -22,7 +22,7 @@ void recursive_node_free(Node *node);
 void rope_delete(Rope *rope);
 
 //Concatenate function
-Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft);
+Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft, int* size);
         int dfs(Node* node);
 
 void suppress_node(Rope* rope, int index);

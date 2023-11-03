@@ -58,7 +58,7 @@ void bench_string(char **s, char *base, size_t nb_insertions)
     }
 }
 
-int main()
+int main_tmp()
 {
     srand(time(NULL));
 
@@ -119,7 +119,7 @@ int main()
 }
 
 
-int main_tmp(){
+int main(){
     unsigned int* sub_size = malloc(sizeof (unsigned int));
     int size = 3;
     Rope* rope = init_rope("abcdefghijklmnopqrstuvwxyz", size);
@@ -131,8 +131,7 @@ int main_tmp(){
     int nbr2 = dfs(rope->root);
     printf("nbr2: %d\n", nbr2);
     rope_delete(rope);
-    int nbr3 = dfs(rope->root);
-    printf("nbr3: %d\n", nbr3);
+//    int nbr3 = dfs(rope->root);
+//    printf("nbr3: %d\n", nbr3); comme rope delete sa crache le dfs
     return 0;
 }
-
