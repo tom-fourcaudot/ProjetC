@@ -10,7 +10,7 @@
 //Initialize a rope with a string and a substring size
 //The substring size is the maximum size of a substring
 //Return a rope
-Rope* init_rope(char* string, int substring_size){
+Rope * init_rope(char* string, int substring_size){
     char* tmp = strdup(string);
     String *string_struct = init_string(tmp);
     Rope* rope = malloc(sizeof (Rope));
@@ -20,20 +20,13 @@ Rope* init_rope(char* string, int substring_size){
     return rope;
 }
 
-void print_node(Node *node){
-    if (node->substring != NULL) {
-        printf("%s", node->substring->first_char);
-    } else {
-        print_node(node->leftNeighbour);
-        print_node(node->rightNeighbour);
+void print_rope(Rope *rope) {
+    if (rope == NULL) {
+        return;
     }
-}
-
-void print_rope(Rope rope) {
-    print_node(rope.root);
+    print_node(rope->root);
     printf("\n");
 }
-
 
 //Insert a node in a rope at a given index
 void rope_insert_at(Rope *rope, String *string, unsigned int* index) {
@@ -93,38 +86,11 @@ int dfs(Node* node) {
     if (node == NULL) {
         return 0;
     }
-
     return dfs(node->leftNeighbour) + dfs(node->rightNeighbour) + 1;
 }
 
-void rope_delete(Rope *rope) {
-    if (rope == NULL) {
-        return; // Rien à faire si rope est NULL
-    }
-    // Appeler une fonction récursive pour libérer les nœuds
-    recursive_node_free(rope->root);
-    free(rope); // Libérer la structure Rope elle-même
+void free_rope (Rope *rope) {
+    if (rope == NULL) {return;}
+    free_node(rope->root);
+    free(rope);
 }
-
-void recursive_node_free(Node *node) {
-    if (node == NULL) {
-        return;
-    }
-
-    recursive_node_free(node->leftNeighbour); // Libérer les nœuds de gauche
-    recursive_node_free(node->rightNeighbour); // Libérer les nœuds de droite
-
-    if (node->substring != NULL) {
-//        free_string(node->substring->first_char, node->substring->size); // Libérer la chaîne de caractères
-        free(node->substring); // Libérer la structure String
-    }
-
-    free(node); // Libérer le nœud actuel
-}
-
-
-
-
-
-
-

@@ -17,4 +17,6 @@ struct Node{
 };
 
 Node* init_node(String* string, const unsigned int* substring_size);
+void print_node(Node* node);
+void free_node(Node* node);
 #endif //PROJETC_NODE_H

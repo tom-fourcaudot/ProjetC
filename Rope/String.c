@@ -13,9 +13,10 @@ String* init_string(char *string){
   return s;
 };
 
-void free_string(char* first_char, int sizeOfString){
-    free((void*)first_char + (sizeOfString * sizeof(char)));
-    free(first_char);
+void free_string(String * string){
+    if (string == NULL){return;}
+    free(string->first_char);
+    free(string);
 }
 
 String * cut_string(String* string) {
