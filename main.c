@@ -58,7 +58,7 @@ void bench_string(char **s, char *base, size_t nb_insertions)
     }
 }
 
-int main_tmp()
+int main()
 {
     srand(time(NULL));
 
@@ -74,10 +74,13 @@ int main_tmp()
     }
     base[nb_chars] = '\0';
 
-    printf("METHOD;CONSTRUCTION;INSERTION;DESTRUCTION\n");
+    printf("METHOD;CONSTRUCTION;INSERTION;DESTRUCTION;NOMBRE_INITIALISaTION;NOMBRE_INSERTION;NOMBRE_DESTRUCTION\n");
     for (int r = 0; r < nb_repetitions; ++r)
     {
         clock_t start_create = clock();
+        float nombre_initialisation = strlen(base);
+        float nombre_insertion = nb_insertions * strlen(base);
+        float nombre_destruction = nombre_initialisation + nombre_insertion;
         Rope *rope = init_rope(base, substring_size); // TO DO
         assert(rope != NULL);
         clock_t start_insert = clock();
@@ -90,7 +93,7 @@ int main_tmp()
         float insert_time = (float)(start_delete - start_insert) / CLOCKS_PER_SEC;
         float delete_time = (float)(stop_delete - start_delete) / CLOCKS_PER_SEC;
 
-        printf("ROPE;%f;%f;%f\n", create_time, insert_time, delete_time);
+        printf("ROPE;%f;%f;%f;%f;%f;%f\n", create_time, insert_time, delete_time, nombre_initialisation, nombre_insertion, nombre_destruction);
     }
 
     for (int r = 0; r < nb_repetitions; ++r)
@@ -114,20 +117,30 @@ int main_tmp()
     }
 
     free(base);
-
     return 0;
 }
 
 
-int main(){
+int main_tmp(){
     unsigned int* sub_size = malloc(sizeof (unsigned int));
     int size = 3;
-    Rope* rope = init_rope("abcdefghijklmnopqrstuvwxyz", size);
+    int size2 = 10000;
+    char *ma_chaine = (char *)malloc(sizeof(char) * (size2 + 1)); // +1 pour le caractère nul de fin de chaîne
+
+    for (int i = 0; i < size2; ++i) {
+        ma_chaine[i] = 'a' + (i % 25);
+    }
+    ma_chaine[size2] = '\0';
+    printf("ma_chaine: %zu\n", strlen(ma_chaine));
+    Rope* rope = init_rope(ma_chaine, size);
     int nbr = dfs(rope->root);
     printf("nbr: %d\n", nbr);
     int pos = 5;
-    String* stringToInsert = init_string("123456789");
+    String* stringToInsert = init_string(ma_chaine);
+    float time1= clock();
     rope_insert_at(rope, stringToInsert, (unsigned int *) &pos);
+    float time2= clock();
+    printf("time: %f\n", (time2-time1)/CLOCKS_PER_SEC);
     int nbr2 = dfs(rope->root);
     printf("nbr2: %d\n", nbr2);
     rope_delete(rope);
