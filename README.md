@@ -1,2 +1,7 @@
 # ProjetC
-Test C structure for string
+
+Matis Bouquin</br>
+Tom Fourcaudot
+
+Pour lancer le programme 
+    ./cmake-build-debug/ProjetC
