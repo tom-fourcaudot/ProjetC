@@ -39,7 +39,6 @@ int rope_len(Node* node) {
     }
 }
 
-
 // Create a new Rope from 2 nodes
 Node* concatenate_from_node(Node* left_node, Node* right_node) {
     if(left_node == NULL) {return NULL;}
@@ -55,55 +54,9 @@ Node* concatenate_from_node(Node* left_node, Node* right_node) {
     return root;
 }
 
-// Find the node at the index of the string
-Node* find_node_at_index(Node* node, int* index) {
-    if (node == NULL){
-        return NULL;}
-    if (*index < 0){
-        return NULL;}
-    if (*index > node->label) {
-        *index -= (int)node->label;
-        return find_node_at_index(node->rightNeighbour, index);
-    } else {
-        if (node->leftNeighbour != NULL) {
-            return find_node_at_index(node->leftNeighbour, index);
-        } else {
-            return node;
-        }
-    }
-}
-
-// Split a node at an index, to simplify the insertion
-void split_node(int tmp_index, Node *to_split) {
-    // We split the String
-    int right_string_len = (int)to_split->substring->size - tmp_index;
-    char* left_string = malloc((tmp_index + 1) * sizeof (char));
-    char* right_string = malloc((right_string_len + 1) * sizeof (char));
-    memcpy(left_string, to_split->substring->first_char, tmp_index);
-    *(left_string + tmp_index) = '\0';
-    memcpy(right_string, to_split->substring->first_char + tmp_index, right_string_len);
-    *(right_string + right_string_len) = '\0';
-    free_string(to_split->substring);
-    to_split->substring = NULL;
-    // We create 2 child nodes
-    to_split->leftNeighbour = malloc(sizeof (Node));
-    to_split->leftNeighbour->leftNeighbour = NULL;
-    to_split->leftNeighbour->rightNeighbour = NULL;
-    to_split->leftNeighbour->parent = to_split;
-    to_split->leftNeighbour->substring = init_string(left_string);
-    to_split->leftNeighbour->label = to_split->leftNeighbour->substring->size;
-    to_split->rightNeighbour = malloc(sizeof (Node));
-    to_split->rightNeighbour->leftNeighbour = NULL;
-    to_split->rightNeighbour->rightNeighbour = NULL;
-    to_split->rightNeighbour->parent = to_split;
-    to_split->rightNeighbour->substring = init_string(right_string);
-    to_split->rightNeighbour->label = to_split->rightNeighbour->substring->size;
-    to_split->label = to_split->leftNeighbour->label;
-}
-
 // Split the rope at the index
 // Return the right part of the rope
-// The input rope will be modify to become the left part of the rope
+// The input rope will be modified to become the left part of the rope
 Rope* split_rope(Rope* rope, int index) {
     if (index < 0) {return NULL;}
     int* tmp_index = malloc(sizeof (int));
@@ -153,13 +106,6 @@ void insert_at(Rope* rope, char* string, int index) {
     free(to_insert);
 }
 
-// Count the number of node under a node
-int dfs(Node* node) {
-    if (node == NULL) {
-        return 0;
-    }
-    return dfs(node->leftNeighbour) + dfs(node->rightNeighbour) + 1;
-}
 
 // Free the rope and its datas
 void free_rope (Rope *rope) {
