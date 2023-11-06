@@ -258,7 +258,7 @@ void insertion_meme_index_taille_insertion_differente(){
     printf("METHOD;INSERTION;TAILLE_DE_L_INSERTION\n");
     for (int r = 0; r < nb_repetitions; ++r)
     {
-        int nb_chars_2 = 10000 * (r+1);
+        int nb_chars_2 = 10000000 * (r+1);
 
         char *base2 = (char *)malloc(sizeof(char) * (1 + nb_chars_2));
         for (int i = 0; i < nb_chars_2; ++i)
@@ -282,7 +282,7 @@ void insertion_meme_index_taille_insertion_differente(){
 
     for (int r = 0; r < nb_repetitions; ++r)
     {
-        int nb_chars_2 = 10000 * (r+1);
+        int nb_chars_2 = 10000000 * (r+1);
 
         char *base2 = (char *)malloc(sizeof(char) * (1 + nb_chars_2));
         for (int i = 0; i < nb_chars_2; ++i)
@@ -378,7 +378,7 @@ void test_delete(){
     const size_t nb_repetitions = 50;
     const int substring_size = 100;
 
-    printf("METHOD;CONSTRUCTION;NOMBRE_DE_CARACTERE\n");
+    printf("METHOD;DESTRUCTION;NOMBRE_DE_CARACTERE\n");
     for (int r = 0; r < nb_repetitions; ++r)
     {
         size_t nb_chars = 10000 * (r+1);
@@ -429,8 +429,8 @@ int main(){
     //CONSTRUCTION
     test_construction();
 
-    //INSERT
-    //test insert index connu
+    //    INSERT
+    //  test insert index connu
     test_insert_connu(1);
     test_insert_connu(100);
     test_insert_connu(1000);
