@@ -18,10 +18,10 @@ void bench_rope(Rope *rope, char *base, size_t nb_insertions)
 //        size_t len = strlen(base);
         size_t pos = rand() % len;
         int start = dfs(rope->root);
-        printf("start: %d\n", start);
+        // printf("start: %d\n", start);
         insert_at(rope, base, (int)pos);
         int end = dfs(rope->root);
-        printf("end: %d\n", end);
+        // printf("end: %d\n", end);
     }
 }
 
@@ -77,6 +77,7 @@ int main_tmp()
     printf("METHOD;CONSTRUCTION;INSERTION;DESTRUCTION\n");
     for (int r = 0; r < nb_repetitions; ++r)
     {
+        printf("_____Repetition %d_____\n", r);
         clock_t start_create = clock();
         Rope *rope = init_rope(base, substring_size); // TO DO
         assert(rope != NULL);

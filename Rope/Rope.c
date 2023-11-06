@@ -33,7 +33,7 @@ int rope_len(Node* node) {
     if (node->substring != NULL) {
         return (int) node->substring->size;
     } else {
-        return rope_len(node->leftNeighbour) + rope_len(node->rightNeighbour);
+        return node->label + rope_len(node->rightNeighbour);
     }
 }
 
@@ -140,7 +140,7 @@ Rope* split_rope(Rope* rope, int index) {
         right_rope->root = concatenate_from_node(right_rope->root, rope->root->rightNeighbour);
         rope->root->rightNeighbour = NULL;
     }
-    rope->root->label = rope_len(rope->root);
+    rope->root->label = rope_len(rope->root->leftNeighbour);
     return right_rope;
 }
 
