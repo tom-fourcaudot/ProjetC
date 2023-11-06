@@ -20,6 +20,7 @@ Rope * init_rope(char* string, int substring_size){
     return rope;
 }
 
+// Print the string in a rope
 void print_rope(Rope *rope) {
     if (rope == NULL) {
         return;
@@ -28,6 +29,7 @@ void print_rope(Rope *rope) {
     printf("\n");
 }
 
+// Return the number of char under a node
 int rope_len(Node* node) {
     if(node == NULL) {return 0;}
     if (node->substring != NULL) {
@@ -38,7 +40,7 @@ int rope_len(Node* node) {
 }
 
 
-
+// Create a new Rope from 2 nodes
 Node* concatenate_from_node(Node* left_node, Node* right_node) {
     if(left_node == NULL) {return NULL;}
     if(right_node == NULL) {return left_node;}
@@ -53,14 +55,7 @@ Node* concatenate_from_node(Node* left_node, Node* right_node) {
     return root;
 }
 
-Rope* concatenate(Rope* left_rope, Rope* right_rope) {
-    Rope* result = malloc(sizeof (Rope));
-    result->root = concatenate_from_node(left_rope->root, right_rope->root);
-    free(left_rope);
-    free(right_rope);
-    return result;
-}
-
+// Find the node at the index of the string
 Node* find_node_at_index(Node* node, int* index) {
     if (node == NULL){
         return NULL;}
@@ -78,6 +73,7 @@ Node* find_node_at_index(Node* node, int* index) {
     }
 }
 
+// Split a node at an index, to simplify the insertion
 void split_node(int tmp_index, Node *to_split) {
     // We split the String
     int right_string_len = (int)to_split->substring->size - tmp_index;
@@ -105,6 +101,9 @@ void split_node(int tmp_index, Node *to_split) {
     to_split->label = to_split->leftNeighbour->label;
 }
 
+// Split the rope at the index
+// Return the right part of the rope
+// The input rope will be modify to become the left part of the rope
 Rope* split_rope(Rope* rope, int index) {
     if (index < 0) {return NULL;}
     int* tmp_index = malloc(sizeof (int));
@@ -144,6 +143,7 @@ Rope* split_rope(Rope* rope, int index) {
     return right_rope;
 }
 
+// Insert a string in the rope
 void insert_at(Rope* rope, char* string, int index) {
     Rope* to_insert = init_rope(string, (int)rope->MAX_INNER_STRING_SIZE);
     Rope* S3 = split_rope(rope, index);
@@ -153,6 +153,7 @@ void insert_at(Rope* rope, char* string, int index) {
     free(to_insert);
 }
 
+// Count the number of node under a node
 int dfs(Node* node) {
     if (node == NULL) {
         return 0;
@@ -160,6 +161,7 @@ int dfs(Node* node) {
     return dfs(node->leftNeighbour) + dfs(node->rightNeighbour) + 1;
 }
 
+// Free the rope and its datas
 void free_rope (Rope *rope) {
     if (rope == NULL) {return;}
     free_node(rope->root);
