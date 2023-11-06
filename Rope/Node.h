@@ -10,7 +10,7 @@
 typedef struct Node Node;
 struct Node{
     unsigned int label;
-
+    Node* parent;
     Node* leftNeighbour;
     Node* rightNeighbour;
     String* substring;

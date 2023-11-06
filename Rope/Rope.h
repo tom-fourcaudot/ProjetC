@@ -15,19 +15,10 @@ struct Rope{
 
 Rope * init_rope(char* string, int substring_size);
 void free_rope(Rope* rope);
-void insert_node(Rope* rope, Node* node, int index);
-void rope_insert_at(Rope* rope, String* string, unsigned int *index);
-
+Rope* split_rope(Rope* rope, int index);
+int rope_len(Node* node);
+void insert_at(Rope* rope, char* string, int index);
 void delete_char_at(Rope* rope, unsigned int* index, unsigned int* length);
-void recursive_node_free(Node *node);
-void rope_delete(Rope *rope);
-
-//Concatenate function
-Node *get_node_at_index(Node *node, unsigned int *index, Node **parentNode, bool* isLeft, int* size);
 int dfs(Node* node);
-
-void suppress_node(Rope* rope, int index);
-void reequilibrate(Rope* rope);
 void print_rope(Rope *rope);
-
 #endif //PROJETC_ROPE_H

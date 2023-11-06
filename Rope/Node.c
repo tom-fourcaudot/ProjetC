@@ -1,7 +1,6 @@
 //
 // Created by toum on 10/16/23.
 //
-#include <math.h>
 #include "Node.h"
 #include "String.h"
 #include <stdlib.h>
@@ -11,25 +10,29 @@
 
 Node * init_node(String* string, const unsigned int* substring_size) {
     Node* node = malloc(sizeof (Node));
+    node->parent = NULL;
     if ( string->size <= *substring_size) {
         node->label = string->size;
         node->rightNeighbour = NULL;
         node->leftNeighbour = NULL;
         char* leafString = malloc((string->size + 1) * sizeof (char));
-        memcpy(leafString, string->first_char, string->size); // Sa pete
+        memcpy(leafString, string->first_char, string->size);
         *(leafString + string->size) = '\0';
         node->substring = init_string(leafString);
         free(string);
     } else {
         node->rightNeighbour = init_node(cut_string(string), substring_size);
+        node->rightNeighbour->parent = node;
         node->label = string->size;
         node->leftNeighbour = init_node(string, substring_size);
+        node->leftNeighbour->parent = node;
         node->substring = NULL;
     }
     return node;
 }
 
 void print_node(Node *node){
+    if(node == NULL){ return;}
     if (node->substring != NULL) {
         printf("%s", node->substring->first_char);
     } else {
